@@ -6,8 +6,8 @@ const SignIn = () => {
     <div className="w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800">
       <div className="px-6 py-4">
         <div className="flex justify-center mx-auto">
-          <span className="text-red-500 text-3xl">
-            SMRT<span className="text-text text-3xl"> eVote</span>
+          <span className="text-3xl text-red-500">
+            SMRT<span className="text-3xl text-text"> eVote</span>
           </span>
         </div>
 
@@ -29,8 +29,8 @@ const SignIn = () => {
             <input
               className="block w-full px-4 py-2 mt-2 text-gray-700 placeholder-gray-500 bg-white border rounded-lg dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring focus:ring-blue-300"
               type="text"
-              placeholder="Domain"
-              aria-label="Domain"
+              placeholder="organization"
+              aria-label="organization"
             />
           </div>
 
@@ -48,7 +48,7 @@ const SignIn = () => {
               Sign In
             </button>
           </div>
-          <div className="text-center mt-4">
+          <div className="mt-4 text-center">
             <a
               href="#"
               className="text-sm text-textSoft dark:text-textSoft hover:text-gray-500"

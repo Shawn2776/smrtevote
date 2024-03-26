@@ -5,10 +5,8 @@ const Hero = () => {
         <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
           <div className="max-w-xl">
             <h2 className="text-3xl font-semibold text-red-500 dark:text-white lg:text-4xl">
-              <span className="text-red-500 text-5xl">SMRT</span>{" "}
-              <span className="text-blue-600 text-5xl dark:text-blue-400">
-                eVote
-              </span>
+              <span className="text-5xl font-extrabold text-red-500">SMRT</span>{" "}
+              <span className="text-5xl text-text">eVote</span>
             </h2>
 
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">
@@ -38,7 +36,7 @@ const Hero = () => {
           <div
             className="w-full h-full bg-cover"
             style={{
-              "background-image":
+              backgroundImage:
                 "url(https://images.pexels.com/photos/920382/pexels-photo-920382.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
             }}
           >

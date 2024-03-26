@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-const Navbar = () => {
+const UNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
               <Link href="/">
-                <span className="text-red-500">SMRT</span> eVote
+                <span className="font-extrabold text-red-500">SMRT</span> eVote
               </Link>
 
               {/* <!-- Mobile menu button --> */}
@@ -32,11 +32,11 @@ const Navbar = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M4 8h16M4 16h16"
                     />
                   </svg>
@@ -47,11 +47,11 @@ const Navbar = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
@@ -112,4 +112,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default UNavbar;
