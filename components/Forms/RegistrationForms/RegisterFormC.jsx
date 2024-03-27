@@ -1,13 +1,13 @@
 "use client";
 
-import { addOrganization } from "@/lib/actions";
+import { addOrganizationandUser } from "@/lib/actions";
 import { redirect, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-const RegisterFormC = ({ industries }) => {
+const RegisterFormC = () => {
   const searchParams = useSearchParams();
   const inEmail = searchParams.get("inEmail");
-  console.log("inEmail:" + inEmail);
+  const inOrganization = searchParams.get("inOrganization");
 
   const [error, setError] = useState(null);
 
@@ -25,15 +25,31 @@ const RegisterFormC = ({ industries }) => {
       industry,
     } = Object.fromEntries(formData);
 
-    // reset form
-    // client-side validation
-    const result = await addOrganization(formData);
+    console.log("Email: ", email);
+    console.log("inEmail: ", inEmail);
+    console.log("Organization: ", organization);
+    console.log("inOrganization: ", inOrganization);
 
-    if (result?.error) {
-      setError(result.error);
+    if (email !== inEmail || organization !== inOrganization) {
+      return { error: "Invalid email or organization." };
     }
 
-    redirect(`/login?email=${email}&organization=${organization}`);
+    try {
+      const result = await addOrganizationandUser(formData);
+      console.log("Result: ", result);
+
+      if (result?.error) {
+        setError(result.error);
+      }
+    } catch (error) {
+      console.log(error);
+      return { error: "Error creating organization." };
+    }
+
+    // reset form
+    // client-side validation
+
+    redirect(`/login?inEmail=${email}&inOrganization=${organization}`);
   }
 
   return (
@@ -52,13 +68,63 @@ const RegisterFormC = ({ industries }) => {
           action={clientAction}
           className="flex flex-wrap justify-between w-full"
         >
+          <div className="w-full text-sm text-textSoft">
+            Personal Information
+          </div>
           <input
             type="text"
-            placeholder="Organization Name"
+            placeholder="First Name"
             className="w-[45%] p-2 m-2"
+            name="givenName"
+            id="givenName"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className="w-[45%] p-2 m-2"
+            name="familyName"
+            id="familyName"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-[45%] p-2 m-2"
+            name="email"
+            id="email"
+            required
+            readOnly
+            value={inEmail}
+          />
+          <input
+            type="text"
+            placeholder="Phone Number"
+            className="w-[45%] p-2 m-2"
+            name="phone"
+            id="phone"
+            required
+            pattern="\d{10}"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-[100%] p-2 m-2"
+            name="password"
+            id="password"
+            required
+          />
+          <div className="w-full mt-8 text-sm text-textSoft">
+            Organization/ Group Information
+          </div>
+          <input
+            type="text"
+            className="w-[100%] p-2 m-2"
             name="organization"
             id="organization"
             required
+            value={inOrganization}
+            readOnly
           />
           {/* <select name="industry" id="industry" className="w-[45%] p-2 m-2">
             <option value="industry">Choose an Industry</option>
@@ -161,32 +227,23 @@ const RegisterFormC = ({ industries }) => {
             required
             pattern="\d{5}"
           />
-          <input
-            type="text"
-            placeholder="Phone Number"
+          <select
+            name="industry"
+            id="industry"
             className="w-[45%] p-2 m-2"
-            name="phone"
-            id="phone"
             required
-            pattern="\d{10}"
-          />
-          <input
-            type="email"
-            placeholder="Admin Email"
-            className="w-[45%] p-2 m-2"
-            name="email"
-            id="email"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-[45%] p-2 m-2"
-            name="password"
-            id="password"
-            required
-          />
-          <button type="submit" className="button">
+          >
+            <option value="industry">Choose an Industry</option>
+            <option value="Education">Education</option>
+            <option value="Healthcare">Healthcare</option>
+            <option value="Finance">Finance</option>
+            <option value="Retail">Retail</option>
+            <option value="Manufacturing">Manufacturing</option>
+            <option value="Technology">Technology</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button type="submit" className="mt-2 rounded-lg button bg-button">
             Submit
           </button>
         </form>

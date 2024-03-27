@@ -10,7 +10,6 @@ const RegisterFormB = () => {
   const inEmail = searchParams.get("inEmail");
   const inOrg = searchParams.get("inOrg");
   const inCode = searchParams.get("inCode");
-  console.log("inEmail: " + inEmail);
 
   async function clientAction(formData) {
     const { email, organization, token } = Object.fromEntries(formData);
@@ -52,7 +51,7 @@ const RegisterFormB = () => {
             name="email"
             id="email"
             required
-            value={inEmail}
+            defaultValue={inEmail || ""}
           />
           <input
             className="w-full p-5 mb-1 border-2 rounded-md bg-bg text-text border-bgHover"
@@ -61,7 +60,7 @@ const RegisterFormB = () => {
             name="organization"
             id="organization"
             required
-            value={inOrg}
+            defaultValue={inOrg || ""}
           />
           <input
             className="w-full p-5 mb-1 border-2 rounded-md bg-bg text-text border-bgHover"
@@ -70,7 +69,7 @@ const RegisterFormB = () => {
             name="token"
             id="token"
             required
-            value={inCode}
+            defaultValue={inCode || ""}
           />
           <button
             type="submit"

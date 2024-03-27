@@ -2,11 +2,11 @@ import mongoose, { Schema } from "mongoose";
 
 const UserSchema = new Schema(
   {
-    fname: {
+    givenName: {
       type: String,
       required: true,
     },
-    lname: {
+    familyName: {
       type: String,
       required: true,
     },

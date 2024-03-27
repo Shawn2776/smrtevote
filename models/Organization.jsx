@@ -48,6 +48,7 @@ const OrgSchema = new Schema(
       type: String,
       required: true,
       enum: ["active", "inactive"],
+      default: "active",
     },
     industry: {
       type: String,
@@ -64,7 +65,7 @@ const OrgSchema = new Schema(
     },
     image: {
       type: String,
-      default: "/nic_edu.png",
+      default: "/noavatar.png",
     },
   },
   {
