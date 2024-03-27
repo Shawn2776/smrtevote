@@ -25,18 +25,12 @@ const RegisterFormC = () => {
       industry,
     } = Object.fromEntries(formData);
 
-    console.log("Email: ", email);
-    console.log("inEmail: ", inEmail);
-    console.log("Organization: ", organization);
-    console.log("inOrganization: ", inOrganization);
-
     if (email !== inEmail || organization !== inOrganization) {
       return { error: "Invalid email or organization." };
     }
 
     try {
       const result = await addOrganizationandUser(formData);
-      console.log("Result: ", result);
 
       if (result?.error) {
         setError(result.error);
@@ -47,7 +41,7 @@ const RegisterFormC = () => {
     }
 
     // reset form
-    // client-side validation
+    // client-side validation]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
 
     redirect(`/login?inEmail=${email}&inOrganization=${organization}`);
   }

@@ -3,6 +3,7 @@ import "../globals.css";
 import Sidebar from "@/components/Sidebar";
 import VNavbar from "@/components/Navbars/VNavbar";
 import Sidebar2 from "@/components/Sidebar2";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +14,7 @@ export const metadata = {
 
 const layout = ({ children }) => {
   return (
-    <div className="flex flex-col w-full min-h-screen bg-bg text-text">
+    <div className="relative flex flex-col w-full min-h-screen bg-bg text-text">
       <div className="w-full">
         <VNavbar />
       </div>
@@ -21,7 +22,10 @@ const layout = ({ children }) => {
         <div className="relative flex-1">
           <Sidebar />
         </div>
-        <div className="min-h-screen flex-4 bg-bgSoft">{children}</div>
+        <div className="flex-4 bg-bgSoft">{children}</div>
+      </div>
+      <div className="absolute bottom-0 w-full h-10 px-14">
+        <Footer />
       </div>
     </div>
   );
