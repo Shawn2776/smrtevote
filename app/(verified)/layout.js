@@ -22,7 +22,7 @@ const layout = ({ children }) => {
         <div className="relative flex-1">
           <Sidebar />
         </div>
-        <div className="flex-4 bg-bgSoft">{children}</div>
+        <div className="flex-4 bg-bg">{children}</div>
       </div>
       <div className="absolute bottom-0 w-full h-10 px-14">
         <Footer />

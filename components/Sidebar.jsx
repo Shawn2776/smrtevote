@@ -26,8 +26,8 @@ const menuItems = [
         icon: <MdHowToVote />,
       },
       {
-        title: "Voters",
-        path: "/adminPanel/voters",
+        title: "Users",
+        path: "/adminPanel/users",
         icon: <MdGroups2 />,
       },
     ],

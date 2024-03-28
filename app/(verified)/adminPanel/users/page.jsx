@@ -50,13 +50,13 @@ const users = [
   },
   {
     id: 3,
-    givenName: "Jumpin Jehosephat",
-    familyName: "Bumblebee-Tuna",
-    email: "jjbttheoneandonly@thisisashortdomainithink.com",
+    givenName: "Jumpin",
+    familyName: "BumblTuna",
+    email: "jjbtthe@thisinithink.com",
     phone: "2085551234",
     status: "disabled",
     userType: "Voter",
-    addrLine1: "3490 Seskatchean Lakeshore Drive",
+    addrLine1: "3490 Sesk Drive",
     addrLine2: "Suite 8",
     city: "Coeur d'Alene",
     state: "ID",
@@ -74,11 +74,13 @@ const users = [
 
 const UsersPage = () => {
   return (
-    <div className="p-5 mt-5 rounded-md bg-bg text-text">
+    <div className="min-h-screen p-5 mt-5 rounded-md bg-bgSoft text-text">
       <div className="flex items-center justify-between">
         Search
         <Link href="/adminPanel/users/new">
-          <button className="btn btn-primary">Add User</button>
+          <button className="px-2 py-1 mr-16 rounded-lg bg-button">
+            Add User
+          </button>
         </Link>
       </div>
       <table className="w-full mt-8 text-text">
