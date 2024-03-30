@@ -12,7 +12,7 @@ const VNavbar = () => {
   };
 
   return (
-    <nav>
+    <nav className="sticky top-0">
       <div className="relative">
         {/* mobile menu logo and buttons*/}
         <div className="flex items-center justify-between px-4 py-2 md:hidden">

@@ -56,7 +56,7 @@ const ElectionsPage = () => {
     <div className="min-h-screen rounded-md md:mt-5 md:p-5 bg-bgSoft text-text">
       <div className="flex items-center justify-between w-full">
         <Search placeholder={"Search for an Election..."} />
-        <Link href="/adminPanel/users/new">
+        <Link href="/adminPanel/elections/new">
           <button className="px-2 py-1 mr-4 rounded-lg md:mr-16 bg-button">
             New Election
           </button>
