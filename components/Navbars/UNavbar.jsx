@@ -15,7 +15,11 @@ const UNavbar = () => {
           <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
               <Link href="/">
-                <span className="font-extrabold text-red-500">SMRT</span> eVote
+                <img
+                  className="w-auto h-12 sm:h-14"
+                  src="/smrtevote.png"
+                  alt=""
+                />
               </Link>
 
               {/* <!-- Mobile menu button --> */}

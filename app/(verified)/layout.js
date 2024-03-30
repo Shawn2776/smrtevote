@@ -14,18 +14,39 @@ export const metadata = {
 
 const layout = ({ children }) => {
   return (
-    <div className="relative flex flex-col w-full min-h-screen bg-bg text-text">
-      <div className="w-full">
-        <VNavbar />
-      </div>
-      <div className="flex w-full">
-        <div className="relative flex-1">
-          <Sidebar />
+    <div className="w-full bg-bg">
+      {/* mobile view */}
+      <div className="md:hidden">
+        <div className="w-full h-20 border-b bg-bg">
+          <VNavbar />
         </div>
-        <div className="flex-4 bg-bg">{children}</div>
+
+        <div className="w-full my-2 bg-bg">
+          <Sidebar2 />
+        </div>
+        <div className="w-full min-h-screen pt-4 pl-4 bg-bgSoft">
+          {children}
+        </div>
+        <div className="w-full h-20">
+          <Footer />
+        </div>
       </div>
-      <div className="absolute bottom-0 w-full h-10 px-14">
-        <Footer />
+      {/* desktop view */}
+      <div className="flex-col hidden md:flex">
+        <div className="w-full h-20 bg-bg">
+          <VNavbar />
+        </div>
+        <div className="flex w-full">
+          <div className="flex-1 w-full bg-bg">
+            <Sidebar />
+          </div>
+          <div className="w-full min-h-screen pt-10 pl-10 mr-10 flex-4 bg-bgSoft">
+            {children}
+          </div>
+        </div>
+        <div className="w-full h-20 bg-bg">
+          <Footer />
+        </div>
       </div>
     </div>
   );

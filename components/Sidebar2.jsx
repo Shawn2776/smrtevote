@@ -1,97 +1,110 @@
+"use client";
+
+import {
+  MdDashboard,
+  MdHowToVote,
+  MdGroups2,
+  MdOutlineListAlt,
+  MdSettings,
+} from "react-icons/md";
+import { FaTeamspeak } from "react-icons/fa";
+import { HiOutlineDocumentReport } from "react-icons/hi";
+import { GoReport } from "react-icons/go";
+import { GrUserAdmin } from "react-icons/gr";
+import MenuLink from "./MenuLink";
 import React from "react";
+import { useRouter } from "next/navigation";
+
+const menuItems = [
+  {
+    title: "Pages",
+    list: [
+      {
+        title: "Dashboard",
+        path: "/adminPanel",
+        icon: <MdDashboard />,
+      },
+      {
+        title: "Elections",
+        path: "/adminPanel/elections",
+        icon: <MdHowToVote />,
+      },
+      {
+        title: "Users",
+        path: "/adminPanel/users",
+        icon: <MdGroups2 />,
+      },
+    ],
+  },
+  {
+    title: "Analytics",
+    list: [
+      {
+        title: "Results",
+        path: "/adminPanel/analytics/results",
+        icon: <MdOutlineListAlt />,
+      },
+      {
+        title: "Teams",
+        path: "/adminPanel/analytics/teams",
+        icon: <FaTeamspeak />,
+      },
+      {
+        title: "Reports",
+        path: "/adminPanel/analytics/reports",
+        icon: <HiOutlineDocumentReport />,
+      },
+    ],
+  },
+  {
+    title: "User",
+    list: [
+      {
+        title: "Settings",
+        path: "/adminPanel/user/settings",
+        icon: <MdSettings />,
+      },
+      {
+        title: "Administration",
+        path: "/adminPanel/user/administration",
+        icon: <GrUserAdmin />,
+      },
+      {
+        title: "Help",
+        path: "/adminPanel/user/help",
+        icon: <GoReport />,
+      },
+    ],
+  },
+];
 
 const Sidebar2 = () => {
-  return (
-    <div className="w-full md:w-[360px] inline-flex flex-col p-3 rounded-2xl bg-surface-100 dark:bg-surfacedark-100">
-      {/* <!-- section header --> */}
-      <div className="py-[18px] px-4 rounded-full">
-        <p className="text-sm tracking-[.00714em] font-medium">Mail</p>
-      </div>
-      <ul className="flex flex-col">
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full active hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">inbox</span>
-            Inbox
-            <span className="flex flex-grow justify-end text-sm tracking-[.00714em]">
-              12
-            </span>
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">outgoing_mail</span>
-            Sent
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">favorite</span>
-            Favorite
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">delete</span>
-            Trash
-          </a>
-        </li>
-      </ul>
-      <hr className="mx-4 border-gray-200 dark:border-gray-700" />
+  const router = useRouter();
 
-      {/* <!-- section header --> */}
-      <div className="py-[18px] px-4 rounded-full">
-        <p className="text-sm tracking-[.00714em] font-medium">Labels</p>
+  const handleChange = (event) => {
+    const path = event.target.value;
+    router.push(path);
+  };
+
+  return (
+    <div className="w-full md:hidden">
+      {/* <h1 className="mb-2 text-textSoft">Page</h1> */}
+      <div className="w-full px-4 pb-0 mb-0">
+        <select
+          className="flex-shrink w-[95%] pl-5 text-2xl border-none rounded-md bg-bgSoft"
+          onChange={handleChange}
+        >
+          {menuItems.map((item) => (
+            <optgroup key={item.title} label={item.title}>
+              {item.list.map((opt) => (
+                <option key={opt.title} value={opt.path}>
+                  {opt.title}
+                </option>
+              ))}
+            </optgroup>
+          ))}
+        </select>
       </div>
-      <ul className="flex flex-col">
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">work</span>
-            Work
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">diversity_2</span>
-            Family
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">group</span>
-            Friends
-          </a>
-        </li>
-        <li className="relative">
-          <a
-            href="#"
-            className="flex flex-row items-center gap-3 py-4 pl-4 pr-6 rounded-full hover-icon hover:bg-secondary-100 dark:hover:bg-secondary-700 hover:bg-opacity-30 dark:hover:bg-opacity-30"
-          >
-            <span className="material-symbols-outlined">star</span>
-            Clients
-          </a>
-        </li>
-      </ul>
     </div>
   );
 };

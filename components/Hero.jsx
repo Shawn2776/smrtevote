@@ -5,8 +5,11 @@ const Hero = () => {
         <div className="flex items-center justify-center w-full px-6 py-8 lg:h-[32rem] lg:w-1/2">
           <div className="max-w-xl">
             <h2 className="text-3xl font-semibold text-red-500 dark:text-white lg:text-4xl">
-              <span className="text-5xl font-extrabold text-red-500">SMRT</span>{" "}
-              <span className="text-5xl text-text">eVote</span>
+              <img
+                className="w-auto h-20 sm:h-24"
+                src="/smrtevote.png"
+                alt=""
+              />
             </h2>
 
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 lg:text-base">

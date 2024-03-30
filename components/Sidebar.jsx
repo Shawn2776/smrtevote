@@ -4,6 +4,7 @@ import {
   MdGroups2,
   MdOutlineListAlt,
   MdSettings,
+  Md2K,
 } from "react-icons/md";
 import { FaTeamspeak } from "react-icons/fa";
 import { HiOutlineDocumentReport } from "react-icons/hi";
@@ -76,7 +77,7 @@ const menuItems = [
 
 const Sidebar = () => {
   return (
-    <div className="sticky top-0 flex flex-col pl-10 text-8xl gap-y-4">
+    <div className="sticky top-0 flex-col hidden pl-10 md:flex text-8xl gap-y-4">
       <ul>
         {menuItems.map((item) => (
           <li key={item.title}>

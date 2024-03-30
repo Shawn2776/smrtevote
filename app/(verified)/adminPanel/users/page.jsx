@@ -1,3 +1,5 @@
+import Pagination from "@/components/Pagination";
+import Search from "@/components/Search";
 import { deleteUser } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,7 +78,7 @@ const UsersPage = () => {
   return (
     <div className="min-h-screen p-5 mt-5 rounded-md bg-bgSoft text-text">
       <div className="flex items-center justify-between">
-        Search
+        <Search placeholder={"Search for a user..."} />
         <Link href="/adminPanel/users/new">
           <button className="px-2 py-1 mr-16 rounded-lg bg-button">
             Add User
@@ -144,6 +146,7 @@ const UsersPage = () => {
           ))}
         </tbody>
       </table>
+      <Pagination count={5} />
     </div>
   );
 };

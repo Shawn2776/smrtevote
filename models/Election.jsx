@@ -36,7 +36,7 @@ const ElectionSchema = new Schema(
       type: String,
       required: true,
       enum: ["live", "test"],
-      default: "active",
+      default: "test",
     },
   },
   {
@@ -68,6 +68,37 @@ const ElectionSchema = new Schema(
       type: String,
       required: true,
       enum: ["after", "during", "never"],
+      default: "never",
+    },
+  },
+  {
+    candidates: {
+      type: [String],
+      required: true,
+    },
+  },
+  {
+    status: {
+      type: String,
+      required: true,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
+  },
+  {
+    votes: {
+      type: [
+        {
+          user: {
+            type: Schema.Types.ObjectId,
+            ref: "User",
+          },
+          candidate: {
+            type: String,
+            required: true,
+          },
+        },
+      ],
     },
   },
   {
