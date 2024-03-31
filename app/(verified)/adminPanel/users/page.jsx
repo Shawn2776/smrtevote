@@ -4,12 +4,13 @@ import { deleteUser } from "@/lib/actions";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { BiDotsHorizontal } from "react-icons/bi";
 
 const users = [
   {
     id: 1,
-    givenName: "John",
-    familyName: "Doe",
+    givenName: "Shawn",
+    familyName: "Harrington",
     email: "jdoe@gmail.com",
     phone: "2085551234",
     status: "active",
@@ -31,7 +32,7 @@ const users = [
   {
     id: 2,
     givenName: "Jane",
-    familyName: "Doe",
+    familyName: "Josephine",
     email: "janedoe@gmail.com",
     phone: "2085555678",
     status: "active",
@@ -57,7 +58,7 @@ const users = [
     email: "jjbtthe@thisinithink.com",
     phone: "2085551234",
     status: "disabled",
-    userType: "Voter",
+    userType: "admin",
     addrLine1: "3490 Sesk Drive",
     addrLine2: "Suite 8",
     city: "Coeur d'Alene",
@@ -118,9 +119,7 @@ const UsersPage = () => {
                 <td>
                   <span
                     className={`${
-                      user.status === "active"
-                        ? "bg-green-500"
-                        : "bg-orange-500"
+                      user.status === "active" ? "bg-buttonView" : "bg-pending"
                     } px-3 py-1 rounded-md text-bgSoft`}
                   >
                     {user.status}
@@ -130,7 +129,7 @@ const UsersPage = () => {
                   <div className="flex justify-center gap-3">
                     <Link href={`/dashboard/users/${user._id}`}>
                       <button
-                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-button rounded-md`}
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonView rounded-md`}
                       >
                         View
                       </button>
@@ -138,7 +137,7 @@ const UsersPage = () => {
                     <form action={deleteUser}>
                       <input type="hidden" name="id" value={user._id} />
                       <button
-                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-red-500 rounded-md`}
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonDelete rounded-md`}
                       >
                         Delete
                       </button>
@@ -155,6 +154,7 @@ const UsersPage = () => {
           <thead>
             <tr>
               <th className="text-start">Name</th>
+              <th>Type</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -163,7 +163,7 @@ const UsersPage = () => {
               <tr key={user._id} className="cursor-pointer hover:bg-bgHover">
                 <td>
                   <div className="flex items-center gap-4">
-                    <div className="flex items-center justify-center object-cover">
+                    {/* <div className="flex items-center justify-center object-cover">
                       <Image
                         src={user.img || "/noavatar2.png"}
                         width={50}
@@ -171,37 +171,30 @@ const UsersPage = () => {
                         alt=""
                         className="object-cover rounded-full"
                       />
-                    </div>
-                    <div>
+                    </div> */}
+                    <div className="text-start">
                       {user.givenName} {user.familyName}
                     </div>
                   </div>
                 </td>
+                <td>{user.userType}</td>
                 <td>
                   <span
                     className={`${
                       user.status === "active"
-                        ? "text-green-500 border"
-                        : "text-orange-500 border"
+                        ? "text-buttonView border"
+                        : "text-pending border"
                     } px-3 py-1 rounded-md text-bgSoft`}
                   >
                     {user.status}
                   </span>
                 </td>
                 <td>
-                  <div className="flex flex-col justify-center gap-1">
-                    <Link href={`/dashboard/users/${user._id}`}>
-                      <button className="cursor-pointer text-button">
-                        View
-                      </button>
-                    </Link>
-                    <form action="">
-                      <input type="hidden" name="id" value={user._id} />
-                      <button className="px-[2px] py-[1px] cursor-pointer text-red-500 rounded-md bg-transparent">
-                        Delete
-                      </button>
-                    </form>
-                  </div>
+                  <Link href={`/dashboard/users/${user._id}`}>
+                    <button className="cursor-pointer text-buttonView">
+                      <BiDotsHorizontal size={34} />
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

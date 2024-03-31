@@ -62,128 +62,138 @@ const ElectionsPage = () => {
           </button>
         </Link>
       </div>
-      <table className="hidden w-full mt-8 md:table text-textSoft">
-        <thead>
-          <tr>
-            <th className="text-start">Title</th>
-            <th>Start</th>
-            <th>End</th>
-            <th>Type</th>
-            <th>Location</th>
-            <th>Anonymity</th>
-            <th>Result - Admins</th>
-            <th>Result - Voters</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody className="text-text">
-          {elections.map((election) => (
-            <tr key={election._id} className="cursor-pointer hover:bg-bgHover">
-              <td>
-                <div className="flex items-center gap-4">
-                  <div>{election.title}</div>
-                </div>
-              </td>
-              <td>
-                <div>
-                  <div>{election.startDate}</div>
-                  <div>{election.startTime}</div>
-                </div>
-              </td>
-              <td>
-                <div>
-                  <div>{election.endDate}</div>
-                  <div>{election.endTime}</div>
-                </div>
-              </td>
-              <td>{election.type}</td>
-              <td>{election.location}</td>
-              <td>{election.anonymity}</td>
-              <td>{election.resultViewingAdmins}</td>
-              <td>{election.resultViewingVoters}</td>
-              <td>
-                <span
-                  className={`${
-                    election.status === "active"
-                      ? "text-green-500 border"
-                      : "text-orange-500 border"
-                  } px-3 py-1 rounded-md text-bgSoft`}
-                >
-                  {election.status}
-                </span>
-              </td>
-              <td>
-                <div className="flex justify-center gap-3">
-                  <Link href={`/dashboard/users/${election._id}`}>
-                    <button
-                      className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-button rounded-md`}
-                    >
-                      View
-                    </button>
-                  </Link>
-                  <form action="">
-                    <input type="hidden" name="id" value={election._id} />
-                    <button
-                      className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-red-500 rounded-md`}
-                    >
-                      Delete
-                    </button>
-                  </form>
-                </div>
-              </td>
+      <div className="hidden px-4 py-2 mt-8 rounded-lg bg-bg md:block">
+        <table className="hidden w-full mt-8 md:table text-textSoft bg-bg">
+          <thead>
+            <tr>
+              <th className="text-start">Title</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Type</th>
+              <th>Location</th>
+              <th>Anonymity</th>
+              <th>Result - Admins</th>
+              <th>Result - Voters</th>
+              <th>Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <table className="w-full mt-8 md:hidden text-text">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {elections.map((election) => (
-            <tr key={election._id} className="cursor-pointer hover:bg-bgHover">
-              <td>
-                <div className="flex items-center gap-4">
-                  <div>{election.title}</div>
-                </div>
-              </td>
-              <td>
-                <span
-                  className={`${
-                    election.status === "active"
-                      ? "text-green-500 border"
-                      : "text-orange-500 border"
-                  } px-3 py-1 rounded-md text-bgSoft`}
-                >
-                  {election.status}
-                </span>
-              </td>
-              <td>
-                <div className="flex justify-center gap-3">
-                  <Link href={`/dashboard/users/${election._id}`}>
-                    <button
-                      className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-button rounded-md`}
-                    >
-                      View
-                    </button>
-                  </Link>
-                  <form action="">
-                    <input type="hidden" name="id" value={election._id} />
-                    <button
-                      className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-red-500 rounded-md`}
-                    >
-                      Delete
-                    </button>
-                  </form>
-                </div>
-              </td>
+          </thead>
+          <tbody className="text-text">
+            {elections.map((election) => (
+              <tr
+                key={election._id}
+                className="cursor-pointer hover:bg-bgHover"
+              >
+                <td>
+                  <div className="flex items-center gap-4">
+                    <div>{election.title}</div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div>{election.startDate}</div>
+                    <div>{election.startTime}</div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <div>{election.endDate}</div>
+                    <div>{election.endTime}</div>
+                  </div>
+                </td>
+                <td>{election.type}</td>
+                <td>{election.location}</td>
+                <td>{election.anonymity}</td>
+                <td>{election.resultViewingAdmins}</td>
+                <td>{election.resultViewingVoters}</td>
+                <td>
+                  <span
+                    className={`${
+                      election.status === "active"
+                        ? "text-buttonView border"
+                        : "text-pending border"
+                    } px-3 py-1 rounded-md text-bgSoft`}
+                  >
+                    {election.status}
+                  </span>
+                </td>
+                <td>
+                  <div className="flex justify-center gap-3">
+                    <Link href={`/dashboard/users/${election._id}`}>
+                      <button
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonView rounded-md`}
+                      >
+                        View
+                      </button>
+                    </Link>
+                    <form action="">
+                      <input type="hidden" name="id" value={election._id} />
+                      <button
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonDelete rounded-md`}
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="px-4 py-2 mt-8 mr-4 rounded-lg md:hidden bg-bg">
+        <table className="w-full mt-8 md:hidden text-text bg-bg">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {elections.map((election) => (
+              <tr
+                key={election._id}
+                className="cursor-pointer hover:bg-bgHover"
+              >
+                <td>
+                  <div className="flex items-center gap-4">
+                    <div>{election.title}</div>
+                  </div>
+                </td>
+                <td>
+                  <span
+                    className={`${
+                      election.status === "active"
+                        ? "text-buttonView border"
+                        : "text-pending border"
+                    } px-3 py-1 rounded-md text-bgSoft`}
+                  >
+                    {election.status}
+                  </span>
+                </td>
+                <td>
+                  <div className="flex justify-center gap-3">
+                    <Link href={`/dashboard/users/${election._id}`}>
+                      <button
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonView rounded-md`}
+                      >
+                        View
+                      </button>
+                    </Link>
+                    <form action="">
+                      <input type="hidden" name="id" value={election._id} />
+                      <button
+                        className={`px-[10px] py-[5px] text-text border-none cursor-pointer bg-buttonDelete rounded-md`}
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
       <Pagination count={5} />
     </div>
   );
