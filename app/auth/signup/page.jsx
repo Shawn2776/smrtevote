@@ -1,11 +1,12 @@
+import RegisterFormA from "@/components/Forms/RegistrationForms/RegisterFormA";
 import React from "react";
 
-const SignupPage = () => {
+const RegisterPage = () => {
   return (
-    <div className="grid items-center justify-center grid-cols-1 md:grid-cols-2">
-      SignupPage
-    </div>
+    <section className="flex items-center justify-center w-full h-screen bg-bg">
+      <RegisterFormA />
+    </section>
   );
 };
 
-export default SignupPage;
+export default RegisterPage;

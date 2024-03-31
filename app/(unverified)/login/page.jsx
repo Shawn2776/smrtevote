@@ -1,12 +1,12 @@
-import SignIn from "@/components/SignIn";
+import RegisterFormA from "@/components/Forms/RegistrationForms/RegisterFormA";
 import React from "react";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   return (
-    <section className="flex bg-bg h-screen w-full justify-center items-center">
-      <SignIn />
+    <section className="flex items-center justify-center w-full h-screen bg-bg">
+      <RegisterFormA />
     </section>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import UNavbar from "@/components/Navbars/UNavbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,8 +11,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`text-text ${inter.className}`}>{children}</body>
+    <html lang="en">
+      <body
+        className={`text-text ${inter.className} bg-bg w-full min-h-screen`}
+      >
+        <UNavbar />
+        {children}
+        Footer
+      </body>
     </html>
   );
 }
