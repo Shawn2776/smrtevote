@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -15,10 +16,12 @@ const UNavbar = () => {
           <div className="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
             <div className="flex items-center justify-between">
               <Link href="/">
-                <img
+                <Image
                   className="w-auto h-12 sm:h-14"
                   src="/smrtevote.png"
                   alt=""
+                  width={120}
+                  height={50}
                 />
               </Link>
 
@@ -104,7 +107,7 @@ const UNavbar = () => {
                     <Link href="/login">Login</Link>
                   </div>
                   <div>
-                    <Link href="/register">Register</Link>
+                    <Link href="/auth/signup">Register</Link>
                   </div>
                 </div>
               </div>

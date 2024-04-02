@@ -1,10 +1,10 @@
-import RegisterFormA from "@/components/Forms/RegistrationForms/RegisterFormA";
+import RegisterFormA2 from "@/components/Forms/RegistrationForms/RegisterFormA2";
 import React from "react";
 
 const RegisterPage = () => {
   return (
-    <section className="flex items-center justify-center w-full h-screen bg-bg">
-      <RegisterFormA />
+    <section className="flex w-full min-h-svh md:items-center md:justify-center bg-bg">
+      <RegisterFormA2 />
     </section>
   );
 };
