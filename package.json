@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/error-message": "^2.0.1",
+    "@hookform/resolvers": "^3.3.4",
     "bcrypt": "^5.1.1",
     "chart.js": "^4.4.2",
+    "check-password-strength": "^2.0.10",
+    "clsx": "^2.1.0",
+    "clsx-tailwind-merge": "^1.0.4",
     "mongoose": "^8.2.3",
     "next": "14.1.4",
     "next-auth": "^4.24.5",
